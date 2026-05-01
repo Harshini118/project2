@@ -4,6 +4,12 @@
 
 Gender equality in education is now mostly solved.
 
+## Group Members
+
+- Jiya Sreejesh: jsreejesh@ucsd.edu
+- Kala Nguyen: knn013@ucsd.edu
+- Triton Stewart: trstewart@ucsd.edu
+
 ## Dataset
 
 This project uses the World Bank Human Development Indicators dataset, specifically the `gender.csv` file from the gender category. The analysis focuses on:
@@ -43,7 +49,7 @@ Open `index.html` in a browser or publish the repository with GitHub Pages.
 
 ## Final Submission
 
-The final submission page is `index.html`. Before submitting, replace the group member placeholder in the header with each member's full name and UCSD email address.
+The final submission page is `index.html`.
 
 ## Design Summary
 
