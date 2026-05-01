@@ -17,6 +17,8 @@ This project uses the World Bank Human Development Indicators dataset, specifica
 - Girls' and boys' adjusted net enrollment rate in primary school
 - Women's and men's gross tertiary enrollment rate
 
+Dataset source: https://github.com/light-and-salt/World-Bank-Data-by-Indicators
+
 ## Project Structure
 
 ```text
@@ -31,7 +33,7 @@ This project uses the World Bank Human Development Indicators dataset, specifica
 └── README.md
 ```
 
-## How To Reproduce
+## Reproduce the Visualizations
 
 Install the Python dependencies:
 
@@ -45,12 +47,8 @@ Regenerate the processed data and chart images:
 python3 src/make_visualizations.py
 ```
 
-Open `index.html` in a browser or publish the repository with GitHub Pages.
-
-## Final Submission
-
-The final submission page is `index.html`.
-
 ## Design Summary
 
 The first visualization argues for the proposition by focusing on the latest available female-to-male primary enrollment ratios across regions and income groups. The second visualization argues against the proposition by shifting attention to tertiary education and income-group inequality.
+
+The design rationale in `index.html` documents 3-5 design decisions for each visualization, assigns each decision a deception/earnestness score from -2 to 2, and reflects on the ethical boundary between persuasion and deception.

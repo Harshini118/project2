@@ -7,13 +7,18 @@
   <style>
     :root {
       --ink: #202522;
-      --muted: #5d6762;
-      --line: #d8dfdc;
-      --paper: #faf8f3;
+      --muted: #59635e;
+      --line: #d7ded9;
+      --paper: #f7f4ee;
       --panel: #ffffff;
-      --green: #2d765f;
+      --teal: #2d765f;
+      --teal-dark: #174d40;
       --rose: #8c3f5d;
       --blue: #456d8f;
+      --gold: #b77d22;
+      --soft-teal: #edf6f2;
+      --soft-rose: #f7edf1;
+      --soft-gold: #fbf2df;
     }
 
     * {
@@ -23,7 +28,7 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
+      line-height: 1.6;
       color: var(--ink);
       background: var(--paper);
     }
@@ -31,75 +36,114 @@
     header,
     main,
     footer {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 32px 22px;
+      padding: 36px 24px;
     }
 
     header {
-      padding-top: 48px;
-      border-bottom: 1px solid var(--line);
+      padding-top: 56px;
+      padding-bottom: 42px;
     }
 
     h1,
     h2,
     h3 {
       line-height: 1.15;
-      margin: 0 0 14px;
+      margin: 0;
     }
 
     h1 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      max-width: 850px;
+      max-width: 880px;
+      font-size: clamp(2.25rem, 5vw, 4.4rem);
+      font-weight: 800;
+      color: #171d1a;
     }
 
     h2 {
-      font-size: 1.75rem;
-      margin-top: 16px;
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      margin-bottom: 14px;
     }
 
     h3 {
-      font-size: 1.15rem;
-      margin-top: 24px;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: #27342f;
     }
 
     p {
       margin: 0 0 14px;
     }
 
+    a {
+      color: var(--teal-dark);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
     .eyebrow {
       color: var(--muted);
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
       text-transform: uppercase;
-      font-size: 0.82rem;
-      margin-bottom: 12px;
     }
 
     .summary {
-      font-size: 1.1rem;
-      max-width: 900px;
-      color: #39423e;
+      max-width: 930px;
+      margin-top: 18px;
+      color: #37413c;
+      font-size: 1.12rem;
     }
 
-    .members {
-      margin-top: 20px;
-      padding: 14px 16px;
-      border-left: 4px solid var(--green);
-      background: #eef5f1;
-      color: #263631;
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .meta-item {
+      min-height: 116px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .meta-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #151b18;
+      font-size: 0.86rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .meta-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
     section {
-      margin: 34px 0 48px;
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
     }
 
-    .viz-block {
-      background: var(--panel);
+    .section-lead {
+      max-width: 880px;
+      color: #39433e;
+      font-size: 1.04rem;
+    }
+
+    .viz-shell {
+      margin-top: 24px;
+      padding: 18px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 22px;
-      margin-top: 18px;
+      background: var(--panel);
     }
 
     figure {
@@ -107,60 +151,118 @@
     }
 
     img {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
       border: 1px solid var(--line);
       border-radius: 6px;
-      background: white;
+      background: #ffffff;
     }
 
     figcaption {
-      color: var(--muted);
       margin-top: 10px;
+      color: var(--muted);
       font-size: 0.94rem;
     }
 
+    .stance-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
     .stance {
-      display: inline-block;
-      font-weight: 700;
-      color: white;
-      background: var(--green);
-      padding: 4px 9px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
       border-radius: 999px;
-      font-size: 0.84rem;
-      margin-bottom: 10px;
+      color: #ffffff;
+      background: var(--teal);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .stance.against {
       background: var(--rose);
     }
 
+    .method-note {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
     .decision {
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-      margin-top: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdf8;
+    }
+
+    .decision p:last-child {
+      margin-bottom: 0;
     }
 
     .score {
-      font-weight: 700;
       color: var(--blue);
+      font-weight: 800;
     }
 
-    ul {
-      margin-top: 8px;
-      padding-left: 22px;
+    .score.earnest {
+      color: var(--teal-dark);
     }
 
-    li {
-      margin-bottom: 10px;
+    .score.deceptive {
+      color: var(--rose);
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 16px;
+      border-left: 5px solid var(--gold);
+      background: var(--soft-gold);
+      color: #3b3122;
+    }
+
+    .source-list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .source-list li {
+      margin-bottom: 8px;
     }
 
     footer {
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.92rem;
-      padding-bottom: 48px;
+      padding-bottom: 54px;
+    }
+
+    @media (max-width: 760px) {
+      header,
+      main,
+      footer {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .meta-grid,
+      .decision-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -169,120 +271,147 @@
     <div class="eyebrow">Project 2: Persuasive or Deceptive Visualization?</div>
     <h1>Is gender equality in education now mostly solved?</h1>
     <p class="summary">
-      Using the World Bank Human Development Indicators gender dataset, these two visualizations argue opposite sides of the same proposition. The first frames global education as a near-parity success story. The second challenges that optimism by shifting attention to higher education and income-group inequality.
+      Two visualizations built from the same World Bank Human Development Indicators dataset argue opposite sides of one proposition. The contrast shows how metric selection, grouping, annotation, and visual framing can turn a shared dataset into two persuasive but ethically different narratives.
     </p>
-    <div class="members">
-      <strong>Group members:</strong>
-      Jiya Sreejesh (jsreejesh@ucsd.edu);
-      Kala Nguyen (knn013@ucsd.edu);
-      Triton Stewart (trstewart@ucsd.edu).
+
+    <div class="meta-grid" aria-label="Project details">
+      <div class="meta-item">
+        <strong>Group Members</strong>
+        <span>Jiya Sreejesh, jsreejesh@ucsd.edu</span>
+        <span>Kala Nguyen, knn013@ucsd.edu</span>
+        <span>Triton Stewart, trstewart@ucsd.edu</span>
+      </div>
+      <div class="meta-item">
+        <strong>Dataset</strong>
+        <span>World Bank Human Development Indicators, gender category, 1960-2020.</span>
+      </div>
+      <div class="meta-item">
+        <strong>Proposition</strong>
+        <span>Gender equality in education is now mostly solved.</span>
+      </div>
     </div>
   </header>
 
   <main>
     <section>
-      <h2>Dataset and Proposition</h2>
-      <p>
-        <strong>Dataset:</strong> World Bank Human Development Indicators, 1960-2020, gender category. We used indicators for girls' and boys' primary net enrollment and women's and men's gross tertiary enrollment.
+      <h2>Framing the Question</h2>
+      <p class="section-lead">
+        The proposition is intentionally debatable. It sounds plausible when education is defined as basic access to primary school, where girls and boys are close to enrollment parity in many regions. It becomes much less convincing when education is defined as access to higher education, where the same dataset reveals large differences across income groups and continued gender gaps in low-income countries.
       </p>
-      <p>
-        <strong>Proposition:</strong> Gender equality in education is now mostly solved.
-      </p>
-      <p>
-        This proposition is intentionally arguable. It can feel convincing if we focus on basic access to primary school, where many regions are close to gender parity. It can also feel misleading if we focus on later-stage educational opportunity, where low-income countries still show much lower access and, in some cases, women remain behind men.
-      </p>
-    </section>
-
-    <section class="viz-block">
-      <span class="stance">Argues the proposition is true</span>
-      <h2>Visualization 1: Primary School Parity</h2>
-      <figure>
-        <img src="visuals/pro_gender_parity_primary.png" alt="Dot plot showing latest female-to-male primary school enrollment ratios near parity across world regions.">
-        <figcaption>
-          This visualization argues that gender equality in education is mostly solved by emphasizing the latest available female-to-male primary enrollment ratio across major regions and income groups.
-        </figcaption>
-      </figure>
-
-      <h3>Design Decisions and Rationale</h3>
-      <div class="decision">
-        <p><span class="score">Score: -1.5</span> - We used primary net enrollment rather than a broader education measure.</p>
-        <p>
-          This is persuasive because primary enrollment is the level where the gender gap looks most closed, making the proposition feel more reasonable. The choice is somewhat deceptive because it narrows "education" to the stage with the strongest evidence for parity and avoids later outcomes such as tertiary enrollment or degree completion.
-        </p>
-      </div>
-      <div class="decision">
-        <p><span class="score">Score: 1.5</span> - We calculated a female-to-male parity ratio.</p>
-        <p>
-          A ratio makes the comparison easy to read: 1.0 means parity, below 1.0 means girls are behind, and above 1.0 means girls are ahead. This is mostly earnest because it directly compares the two groups, though ratios can hide the overall level of enrollment.
-        </p>
-      </div>
-      <div class="decision">
-        <p><span class="score">Score: -1</span> - We used a shaded parity band from 0.97 to 1.03.</p>
-        <p>
-          The band visually absorbs small gender differences into a "close enough" category, helping the viewer remember the chart as a success story. This is not fully deceptive because a tolerance band is reasonable, but the 3 percent threshold is a rhetorical design choice rather than a universal standard.
-        </p>
-      </div>
-      <div class="decision">
-        <p><span class="score">Score: -0.5</span> - We used the latest available year for each region instead of forcing one common year.</p>
-        <p>
-          This maximizes coverage and keeps the chart clean, but it slightly weakens comparability because not every point is from the exact same year. We disclosed this in the source note so the decision remains visible rather than hidden.
-        </p>
-      </div>
-    </section>
-
-    <section class="viz-block">
-      <span class="stance against">Argues the proposition is false</span>
-      <h2>Visualization 2: Higher Education Inequality</h2>
-      <figure>
-        <img src="visuals/con_gender_parity_tertiary.png" alt="Grouped bar chart showing women and men tertiary enrollment by income group, with low-income countries far below high-income countries.">
-        <figcaption>
-          This visualization argues that gender equality in education is not solved by showing how tertiary enrollment remains deeply unequal across income groups, especially for women in low-income countries.
-        </figcaption>
-      </figure>
-
-      <h3>Design Decisions and Rationale</h3>
-      <div class="decision">
-        <p><span class="score">Score: 1</span> - We shifted from primary enrollment to tertiary enrollment.</p>
-        <p>
-          This broader interpretation of education challenges the first chart's narrow optimism. The decision is persuasive because equality at the first stage of schooling does not guarantee equality in advanced opportunity, but it also changes the meaning of the proposition in a way readers need to notice.
-        </p>
-      </div>
-      <div class="decision">
-        <p><span class="score">Score: 2</span> - We grouped countries by World Bank income categories.</p>
-        <p>
-          Grouping by income level is an earnest transformation because it reveals a structural pattern that individual countries or a world average could hide. It helps the reader see that global gender progress is not experienced evenly.
-        </p>
-      </div>
-      <div class="decision">
-        <p><span class="score">Score: 1.5</span> - We used paired bars for women and men.</p>
-        <p>
-          Paired bars make the gender comparison straightforward while also showing the huge difference in total access between income groups. This worked better than a parity-ratio-only chart because the actual enrollment levels are central to the ethical argument.
-        </p>
-      </div>
-      <div class="decision">
-        <p><span class="score">Score: 0.5</span> - We annotated the low-income group and high-income group.</p>
-        <p>
-          The annotations guide attention toward the intended contrast: low-income countries have much lower tertiary access, and women there remain behind men. This is somewhat slanted because it tells readers where to look, but it is grounded in the displayed values.
-        </p>
+      <div class="callout">
+        <strong>How to read the deception scores:</strong> -2 means fully deceptive, 0 means neutral, and 2 means fully earnest. Scores reflect whether each design decision clarifies the evidence, strategically narrows it, or subtly steers the reader toward one side of the proposition.
       </div>
     </section>
 
     <section>
-      <h2>Final Reflection</h2>
+      <div class="stance-row">
+        <span class="stance">Argues the proposition is true</span>
+        <span class="method-note">Transformation: latest regional value, female-to-male primary enrollment ratio, parity band.</span>
+      </div>
+      <h2>Visualization 1: Primary School Parity</h2>
+      <p class="section-lead">
+        This view frames gender equality in education as a global success story by focusing on girls' and boys' adjusted net enrollment in primary school. The derived ratio makes parity easy to see and makes remaining differences appear small.
+      </p>
+
+      <div class="viz-shell">
+        <figure>
+          <img src="visuals/pro_gender_parity_primary.png" alt="Dot plot showing latest female-to-male primary school enrollment ratios near parity across world regions.">
+          <figcaption>
+            Latest available female-to-male primary enrollment ratios for major regions and income groups. A value of 1.0 represents parity.
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3>Design Decisions and Rationale</h3>
+      <div class="decision-grid">
+        <div class="decision">
+          <p><span class="score deceptive">Score: -1.5</span> - We used primary net enrollment rather than a broader education measure.</p>
+          <p>This is persuasive because primary enrollment is the stage where the gender gap looks most closed, making the proposition feel reasonable. It is somewhat deceptive because it narrows "education" to the strongest available evidence for the claim and avoids later outcomes such as tertiary enrollment or degree completion.</p>
+        </div>
+        <div class="decision">
+          <p><span class="score earnest">Score: 1.5</span> - We calculated a female-to-male parity ratio.</p>
+          <p>The ratio makes the comparison effortless: 1.0 means parity, below 1.0 means girls are behind, and above 1.0 means girls are ahead. This is mostly earnest because it directly compares the two groups, though it can hide the overall level of enrollment.</p>
+        </div>
+        <div class="decision">
+          <p><span class="score deceptive">Score: -1</span> - We used a shaded parity band from 0.97 to 1.03.</p>
+          <p>The band visually absorbs small gender differences into a "close enough" category, helping the viewer remember the chart as a success story. The choice is not fully deceptive because tolerance bands are common, but the 3 percent threshold is a rhetorical framing choice rather than a universal standard.</p>
+        </div>
+        <div class="decision">
+          <p><span class="score deceptive">Score: -0.5</span> - We used the latest available year for each region instead of forcing one common year.</p>
+          <p>This maximizes coverage and keeps the visualization readable, but it slightly weakens comparability because not every point comes from the exact same year. We disclosed the choice in the source note so the transformation remains visible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="stance-row">
+        <span class="stance against">Argues the proposition is false</span>
+        <span class="method-note">Transformation: latest income-group value, paired gender bars, tertiary enrollment comparison.</span>
+      </div>
+      <h2>Visualization 2: Higher Education Inequality</h2>
+      <p class="section-lead">
+        This view challenges the first chart by moving from basic schooling to higher education. It shows that gender parity in primary enrollment does not mean equal access to advanced educational opportunity, especially in low-income countries.
+      </p>
+
+      <div class="viz-shell">
+        <figure>
+          <img src="visuals/con_gender_parity_tertiary.png" alt="Grouped bar chart showing women and men tertiary enrollment by income group, with low-income countries far below high-income countries.">
+          <figcaption>
+            Latest available gross tertiary enrollment rates for women and men by World Bank income group. Values show access levels, not only gender ratios.
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3>Design Decisions and Rationale</h3>
+      <div class="decision-grid">
+        <div class="decision">
+          <p><span class="score earnest">Score: 1</span> - We shifted from primary enrollment to tertiary enrollment.</p>
+          <p>This broader interpretation of education challenges the narrow optimism of the first visualization. It is persuasive because equality at the first stage of schooling does not guarantee equality in advanced opportunity, but it also changes the meaning of the proposition in a way readers need to notice.</p>
+        </div>
+        <div class="decision">
+          <p><span class="score earnest">Score: 2</span> - We grouped countries by World Bank income categories.</p>
+          <p>Grouping by income level is an earnest transformation because it reveals a structural pattern that individual countries or a world average could hide. It helps the reader see that global gender progress is not experienced evenly.</p>
+        </div>
+        <div class="decision">
+          <p><span class="score earnest">Score: 1.5</span> - We used paired bars for women and men.</p>
+          <p>Paired bars make the gender comparison straightforward while also showing the large difference in total access between income groups. This worked better than another ratio-only chart because the absolute enrollment levels are central to the ethical argument.</p>
+        </div>
+        <div class="decision">
+          <p><span class="score">Score: 0.5</span> - We annotated the low-income and high-income contrasts.</p>
+          <p>The annotations guide attention toward the intended contrast: low-income countries have much lower tertiary access, and women there remain behind men. This is somewhat slanted because it tells readers where to look, but the claim is grounded in visible values.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Reflection on Ethical Visualization</h2>
       <p>
-        The hardest part of this project was that both visualizations can be defended as truthful. The first chart does not invent data; girls really are close to boys in primary net enrollment across many regions. At the same time, the design choices make "education" feel almost equivalent to primary enrollment, which is a major narrowing of the issue. The second chart also uses real data, but it changes the frame from basic access to advanced opportunity, which makes the same proposition feel much less convincing.
+        The most difficult part of this project was that both visualizations can be defended as truthful. The first chart does not invent data: girls really are close to boys in primary net enrollment across many regions. At the same time, its design choices make "education" feel almost equivalent to primary enrollment, which is a major narrowing of the issue. The second chart also uses real data, but it changes the frame from basic access to advanced opportunity, making the same proposition feel much less convincing.
       </p>
       <p>
         What surprised us most is how much persuasion happens before the viewer even reaches the chart. The title, selected metric, grouping, scale, and annotation decide what question the visualization seems to answer. A reader might think they are judging the evidence independently, but the design has already shaped which evidence feels relevant. In this project, the most powerful choices were not flashy visual tricks. They were quiet framing decisions.
       </p>
       <p>
-        We now define ethical visualization as making design choices that help an audience understand a claim while preserving enough context for them to question it. Persuasion becomes misleading when the chart depends on hiding the frame, such as pretending that one metric fully answers a broader social question. We do not think there is a single clean boundary between acceptable persuasion and deception, but disclosure matters: a persuasive chart can still be ethical when its transformations, limitations, and framing choices are visible enough for a careful reader to evaluate.
+        We define ethical visualization as making design choices that help an audience understand a claim while preserving enough context for them to question it. Persuasion becomes misleading when the chart depends on hiding the frame, such as pretending that one metric fully answers a broader social question. We do not think there is a single clean boundary between acceptable persuasion and deception, but disclosure matters: a persuasive chart can still be ethical when its transformations, limitations, and framing choices are visible enough for a careful reader to evaluate.
       </p>
+    </section>
+
+    <section>
+      <h2>Source and Reproducibility</h2>
+      <p>
+        The analysis uses the gender category of the World Bank Human Development Indicators dataset. The processed files and chart-generation script are included in this repository so the visualizations can be reproduced.
+      </p>
+      <ul class="source-list">
+        <li>Raw data: <code>data/raw/gender.csv</code></li>
+        <li>Processed data: <code>data/processed/latest_primary_gender_parity.csv</code> and <code>data/processed/latest_tertiary_gender_access_by_income.csv</code></li>
+        <li>Visualization script: <code>src/make_visualizations.py</code></li>
+        <li>Dataset source: <a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators">World Bank Data by Indicators repository</a></li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    Source: World Bank Human Development Indicators, gender category, 1960-2020. Data was downloaded from the cleaned repository used for course visual analysis.
+    World Bank Human Development Indicators, gender category, 1960-2020. Visualizations and written rationale prepared for Project 2: Persuasive or Deceptive Visualization?
   </footer>
 </body>
 </html>
