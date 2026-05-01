@@ -1,0 +1,33 @@
+# Design Rationale Copy
+
+This file mirrors the written rationale included in `index.html` so the reasoning is easy to review in Git.
+
+## Proposition
+
+Gender equality in education is now mostly solved.
+
+## Visualization 1: Argues the proposition is true
+
+The first visualization uses latest available girls' and boys' primary net enrollment rates to calculate a female-to-male parity ratio. It argues that girls are essentially at parity in primary school across many regions and income groups.
+
+- Score: -1.5. I used primary net enrollment rather than a broader education measure. This makes the proposition feel more persuasive because primary enrollment is where gender parity looks strongest.
+- Score: 1.5. I calculated a female-to-male parity ratio. This directly compares girls and boys and makes a ratio of 1.0 easy to interpret as parity.
+- Score: -1. I used a shaded parity band from 0.97 to 1.03. This frames small differences as close enough, which is reasonable but rhetorically favorable to the claim.
+- Score: -0.5. I used the latest available year for each region. This improves coverage but slightly weakens exact year-to-year comparability.
+
+## Visualization 2: Argues the proposition is false
+
+The second visualization uses latest available women's and men's tertiary gross enrollment rates by World Bank income group. It argues that primary-school parity hides later-stage educational inequality.
+
+- Score: 1. I shifted from primary enrollment to tertiary enrollment. This challenges the narrow optimism of the first visualization.
+- Score: 2. I grouped countries by income category. This reveals structural inequality that a world average could hide.
+- Score: 1.5. I used paired bars for women and men. This shows both gender gaps and differences in total access.
+- Score: 0.5. I annotated the low-income and high-income contrasts. This guides attention but remains grounded in visible values.
+
+## Reflection
+
+The hardest part of this project was that both visualizations can be defended as truthful. The first chart does not invent data; girls really are close to boys in primary net enrollment across many regions. At the same time, the design choices make "education" feel almost equivalent to primary enrollment, which narrows the issue. The second chart also uses real data, but it changes the frame from basic access to advanced opportunity.
+
+What surprised me most is how much persuasion happens before the viewer even reaches the chart. The title, selected metric, grouping, scale, and annotation decide what question the visualization seems to answer. A reader might think they are judging the evidence independently, but the design has already shaped which evidence feels relevant.
+
+I now define ethical visualization as making design choices that help an audience understand a claim while preserving enough context for them to question it. Persuasion becomes misleading when the chart depends on hiding the frame, such as pretending that one metric fully answers a broader social question.
