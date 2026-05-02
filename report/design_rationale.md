@@ -8,6 +8,7 @@ Gender equality in education is now mostly solved.
 
 ## Group Members
 
+- Harshini Kanakala: hkanakala@ucsd.edu
 - Jiya Sreejesh: jsreejesh@ucsd.edu
 - Kala Nguyen: knn013@ucsd.edu
 - Triton Stewart: trstewart@ucsd.edu
